@@ -29,15 +29,15 @@ pipeline{
 		}
 		stage('Building-DockerImage'){
 			steps{
-				sh 'docker build -t manojkrishnappa/continous-intergartion:1 .'
+				sh 'docker build -t mohamedsadiq9741:v1 .'
 			}
 		}
 
 		stage('Contianersation'){
 			sh '''
-				docker stop c1 || true
-				docker rm c1 || true
-				docker run -it -d --name c1 -p 9000:8080 manojkrishnappa/continous-intergartion:1
+				//docker stop c1 || true
+				//docker rm c1 || true
+				docker run -it -d --name c1 -p 9000:8081  mohamedsadiq9741:v1
 
 			'''	
 		}
