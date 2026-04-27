@@ -45,7 +45,7 @@ pipeline {
         // This 'configFileProvider' or 'withCredentials' fetches the .pem file
         withCredentials([file(credentialsId: 'ec2-linux', variable: 'KEY_FILE')]) {
             sh """
-                ssh -i $KEY_FILE -o StrictHostKeyChecking=no ec2-user@18.61.254.213 "
+                ssh -i "$KEY_FILE" -o StrictHostKeyChecking=no ec2-user@18.61.254.213 "
                     docker stop c1 || true && \
                     docker rm c1 || true && \
                     docker pull mohamedsadiq9741/project:1 && \
