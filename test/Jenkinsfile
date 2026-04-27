@@ -44,7 +44,7 @@ pipeline {
             steps {
                 // This connects to your EC2 instance to pull and run the image
                 // Replace 'ec2-user' and 'your-ec2-ip' with your actual details
-                sshagent(['ec2-ssh-key']) { 
+                sshagent(['ec2-linux']) { 
                     sh '''
                         ssh -o StrictHostKeyChecking=no ec2-user@18.61.254.213 "
                             docker stop c1 || true && \
