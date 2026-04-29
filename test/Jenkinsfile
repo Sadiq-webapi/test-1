@@ -46,7 +46,7 @@ pipeline {
         // 'keyFileVariable' creates a temporary local path to the key so the 'ssh -i' command can use it.
         withCredentials([sshUserPrivateKey(credentialsId: 'ec2-linux', keyFileVariable: 'KEY_FILE')]) {
             sh """
-                ssh -i "$KEY_FILE" -o StrictHostKeyChecking=no ec2-user@18.61.163.55 "
+                ssh -i "$KEY_FILE" -o StrictHostKeyChecking=no ec2-user@16.112.160.22 "
                     docker stop c1 || true && \
                     docker rm c1 || true && \
                     docker pull mohamedsadiq9741/project:1 && \
